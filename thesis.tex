@@ -1,0 +1,78 @@
+% Settings for the document is in 'styles/settings.tex'
+\input{styles/settings}
+
+% Loại báo cáo (Đồ án/Khóa luận tốt nghiệp đại học/cao học/tiến sĩ)
+\crname{ĐỒ ÁN TỐT NGHIỆP}
+% Nhập tên đồ án 
+\ctname{TÌM HIỂU MẠNG NEURAL TÍCH CHẬP \\ỨNG DỤNG XÂY DỰNG HỆ THỐNG NHẬN DẠNG LOÀI VẬT QUA ẢNH }
+% Họ và tên SV, MSSV
+\cstuname{Lê Trọng Kha (60131234)}
+% Tên ngành
+\csCouncil{Công nghệ thông tin}
+% Họ và tên GV hướng dấn
+\csSupervise{TS. Nguyễn Đình Hưng}
+% Năm thực hiện đồ án
+\cttime{2022}
+% Set thesis layout (defined in 'thesis.sty')
+\thesislayout
+
+\begin{document}
+% Add cover page to the document (defined in 'styles/thesis.sty')
+\coverpage
+
+% The \frontmatter command makes the pages numbered in lowercase roman, and makes chapters not numbered
+\frontmatter
+
+% Lời cam kết
+\begin{declaration}
+
+Tôi cam đoan đây là công trình do tôi tự thực hiện dưới sự hướng dẫn của TS. Nguyễn Đình Hưng. Các nội dung nghiên cứu, số liệu và kết quả là trung thực. Các số liệu, công trình sử dụng của tác giả khác đều được trích dẫn nguồn gốc rõ ràng. Tất cả phần mềm, mã nguồn được sử dụng trong đồ án này đều có giấy phép miễn phí. 
+
+Nếu phát hiện có bất kì sự gian lận nào, tôi xin chịu hoàn toàn trách nhiệm.
+
+
+\begin{flushright}
+        {Lê Trọng Kha}
+\end{flushright}
+\end{declaration}
+
+\newpage
+
+% Lời cảm ơn
+\begin{acknowledgments}
+Công trình này có sử dụng một phần sản phẩm của \href{https://github.com/thanhhungqb/thesis-template}{Hung Vo} và \href{https://www.overleaf.com/project/62986f62b65db6f03abab3b8}{Ngo Thi Tien}. 
+
+
+\end{acknowledgments}
+
+% Tóm tắt báo cáo
+\begin{abstract}
+Tài liệu này cung cấp một bản thiết kế mẫu biên soạn đồ án/khóa luận tốt nghiệp đại học/sau đại học theo quy định của Trường đại học Nha Trang.
+\end{abstract}	
+
+% Bảng mục lục
+\tableofcontents
+% Danh mục bảng
+\listoftables
+% Danh mục hình
+\listoffigures
+% Danh mục giải thuật
+\listofalgorithms
+
+\mainmatter
+\fancyhead{}  % Clears all page headers and footers
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy} 
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\fancyhead[R]{\chaptername\ \thechapter\ --\ \leftmark}
+
+\input{chapters/introduction}
+\input{chapters/document-preparation}
+\input{chapters/conclusion}
+
+% Tài liệu tham khảo
+\bibliographystyle{plain} 
+\bibliography{refs}
+
+% Kết thúc
+\end{document}
