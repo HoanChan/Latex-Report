@@ -1,78 +1,222 @@
-% Settings for the document is in 'styles/settings.tex'
-\input{styles/settings}
+% This is a copy version from https://github.com/thanhhungqb/thesis-template
+% Please do not modified this project, when you want to start writing, make a clone of it for your own (Please read README.md)
 
-% Loại báo cáo (Đồ án/Khóa luận tốt nghiệp đại học/cao học/tiến sĩ)
-\crname{ĐỒ ÁN TỐT NGHIỆP}
-% Nhập tên đồ án 
-\ctname{TÌM HIỂU MẠNG NEURAL TÍCH CHẬP \\ỨNG DỤNG XÂY DỰNG HỆ THỐNG NHẬN DẠNG LOÀI VẬT QUA ẢNH }
-% Họ và tên SV, MSSV
-\cstuname{Lê Trọng Kha (60131234)}
-% Tên ngành
-\csCouncil{Công nghệ thông tin}
-% Họ và tên GV hướng dấn
-\csSupervise{TS. Nguyễn Đình Hưng}
-% Năm thực hiện đồ án
-\cttime{2022}
-% Set thesis layout (defined in 'thesis.sty')
+\documentclass[12pt,a4paper,oneside]{book} % twoside for draf
+
+%\usepackage{babel}
+\usepackage[utf8]{vietnam}
+\usepackage[utf8]{inputenc}
+\usepackage{tipa}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{mathptmx}	% same Time New Roma
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{styles/ipa}
+%\renewcommand{\rmdefault}{phv} % Arial
+%\renewcommand{\sfdefault}{phv} % Arial
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage{algorithm2e}
+% Đổi tên mặc định của algorithm thành giải thuật nếu là 1, Các giải thuật nếu nhiều, Danh sách giải thuật nếu là ds
+\SetAlgorithmName{Giải thuật}{Các giải thuật}{Danh sách giải thuật}
+\usepackage{hyperref} % Hỗ trợ tạo hyperlink trong văn bản
+\usepackage{float} % Hỗ trợ đặt hình ảnh chính xác
+
+\linespread{1.25} % Giãn dòng 1.25 lần
+% Set paragraph spacing
+\setlength{\parskip}{\baselineskip}% Có nghĩa là khoảng cách giữa các đoạn là 1 dòng
+% Load the parskip package with skip and indent options
+\usepackage[skip=10pt plus1pt, indent=15 pt]{parskip} % Có nghĩa là khoảng cách giữa các đoạn là 10pt, và lùi đầu dòng 15pt
+\usepackage{colortbl} % Hỗ trợ tạo bảng màu, VD: \cellcolor{gray} 
+
+% \usepackage{algorithm}
+% \usepackage{minted}
+% \usepackage{minted}
+\usepackage{listings}
+\lstset{
+  numbers=left,
+  commentstyle=\color{green},
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  basicstyle=\ttfamily,
+  columns=flexible,
+  breaklines=true
+}
+\usepackage{styles/cover}
+
+\usepackage{graphicx}
+\graphicspath{ {image/} }
+\setcounter{secnumdepth}{2}
+\crname{LUẬN VĂN TỐT NGHIỆP ĐẠI HỌC}
+\ctname{NHẬN DIỆN VẬT THỂ TRONG ẢNH\\NHẬN DIỆN HƯỚNG NHÌN TRONG ẢNH}
+\cstuname{
+SVTH: NGÔ THỊ TIẾN (1413986)
+}
+
+\csCouncil{KHOA HỌC MÁY TÍNH}
+\csReviewer{TS. TRẦN GIANG SƠN}
+\csSupervise{TS. NGUYỄN ĐỨC DŨNG}
+\cttime{12/2018}
+
 \thesislayout
 
 \begin{document}
-% Add cover page to the document (defined in 'styles/thesis.sty')
+%-	Bìa cứng - màu xanh dương, chữ mạ vàng (xem mẫu đính kèm)
+%-	Trang tên (tờ lót): chất liệu giấy, nội dung giống như bìa LV
+%-	Ở gáy LV: in nhan đề LV (có thể in tóm tắt nếu nhan đề quá dài), size 15 – 17
+%-	Phiếu Nhiệm vụ LV, chấm điểm Hướng dẫn & Phản biện (đã ký): nhận từ GVHD & GVPB sau khi bảo vệ (theo lịch hẹn).
+%-	Lời cam đoan
+%-	Lời cảm ơn/ Lời ngỏ
+%-	Tóm tắt LV
+%-	Mục lục
+%-	Danh mục, bảng biểu, hình ảnh, ... (nếu có)
+%-	Nội dung LV
+%-	Danh mục TL tham khảo
+%-	Phụ lục (nếu có)
+
 \coverpage
 
-% The \frontmatter command makes the pages numbered in lowercase roman, and makes chapters not numbered
 \frontmatter
 
-% Lời cam kết
+
 \begin{declaration}
+	Nhận diện hướng nhìn trong ảnh (Nhận diện vật thể trong ảnh) không phải là một đề tài mới nhưng vẫn là một thách thức bởi: trong các ứng dụng: việc nhận diện hướng nhìn của con người qua hình ảnh đòi hỏi kết quả chính xác cao, ở Việt Nam, hiện tại không  thực sự có nhiều nghiên cứu chuyên sâu về đề tài. Trong quá trình nghiên cứu đề tài có rất nhiều kiến thức không nằm trong chương trình giảng dạy ở bậc Đại học tuy vậy chúng tôi xin cam đoan đây là công trình nghiên cứu của riêng tôi dưới sự hướng dẫn của tiến sĩ Nguyễn Đức Dũng. Nội dung nghiên cứu và các kết quả đều là trung thực và chưa từng được công bố trước đây. Các số liệu được sử dụng cho quá trình phân tích, nhận xét được chính tôi thu thập từ nhiều nguồn khác nhau và sẽ được ghi rõ trong phần tài liệu tham khảo.
 
-Tôi cam đoan đây là công trình do tôi tự thực hiện dưới sự hướng dẫn của TS. Nguyễn Đình Hưng. Các nội dung nghiên cứu, số liệu và kết quả là trung thực. Các số liệu, công trình sử dụng của tác giả khác đều được trích dẫn nguồn gốc rõ ràng. Tất cả phần mềm, mã nguồn được sử dụng trong đồ án này đều có giấy phép miễn phí. 
+	Ngoài ra, tôi cũng có sử dụng một số nhận xét, đánh giá và số liệu của các tác giả khác, cơ quan tổ chức khác. Tất cả đều có trích dẫn và chú thích nguồn gốc.
 
-Nếu phát hiện có bất kì sự gian lận nào, tôi xin chịu hoàn toàn trách nhiệm.
+	Nếu phát hiện có bất kì sự gian lận nào, tôi xin hoàn toàn chịu trách nhiệm về nội dung luận văn của mình. Trường đại học Bách Khoa thành phố Hồ Chí Minh không liên quan đến những vi phạm tác quyền, bản quyền do tôi gây ra trong quá trình thực hiện.
 
-
-\begin{flushright}
-        {Lê Trọng Kha}
-\end{flushright}
 \end{declaration}
 
-\newpage
-
-% Lời cảm ơn
 \begin{acknowledgments}
-Công trình này có sử dụng một phần sản phẩm của \href{https://github.com/thanhhungqb/thesis-template}{Hung Vo} và \href{https://www.overleaf.com/project/62986f62b65db6f03abab3b8}{Ngo Thi Tien}. 
 
+	Để hoàn thành kì đề cương luận văn này, tôi tỏ lòng biết ơn sâu sắc đến tiến sĩ Nguyễn Đức Dũng đã hướng dẫn tận tình trong suốt quá trình nghiên cứu.
+
+	Chúng tôi chân thành cám ơn quý thầy, cô trong khoa Khoa Học Và Kỹ Thuật Máy Tính, trường đại học Bách Khoa thành phố Hồ Chí Minh đã tận tình truyền đạt kiến thức trong những năm chúng tôi học tập ở trường. Với vốn kiến thức tích lũy được trong suốt quá trình học tập không chỉ là nền tảng cho quá trình nghiên cứu mà còn là hành trang để bước vào đời một cách tự tin.
+
+	Cuối cùng, tôi xin chúc quý thầy, cô dồi dào sức khỏe và thành công trong sự nghiệp cao quý.
 
 \end{acknowledgments}
 
-% Tóm tắt báo cáo
 \begin{abstract}
-Tài liệu này cung cấp một bản thiết kế mẫu biên soạn đồ án/khóa luận tốt nghiệp đại học/sau đại học theo quy định của Trường đại học Nha Trang.
-\end{abstract}	
+	Nội dung chính của luận văn nhằm tìm hiểu, nghiên cứu xây dựng hệ thống nhận diện hướng nhìn thông qua ảnh chụp dựa trên những công trình, công nghệ mới được nghiên cứu và phát triển trong những năm gần đây của lĩnh vực Deep Learning. Trong quá trình nghiên cứu, tôi đã  tiến hành tổng hợp, đánh giá ưu và nhược điểm của cách phương pháp, công nghệ đã và đang được nghiên cứu, sử dụng. Tiếp cận vấn đề theo nhiều hướng khác nhau, tôi thực hiện một số phương pháp sử dụng học sâu (CNN) để phát hiện hướng nhìn của con người qua hình ảnh. Bên cạnh việc hoàn thành nội dung của đề tài, nhóm chúng tôi đã nghiên cứu thêm một số phần để từ đó đặt nền móng cho các nghiên cứu sau này. Phần còn lại của luận văn tập trung vào việc đánh giá mô hình, kết quả đạt được, đồng thời phân tích ưu nhược điểm của mô hình thực hiện và thảo luận những vấn đề mà mô hình còn gặp phải. Cuối cùng, nhóm chúng tôi đề xuất hướng phát triển tiếp theo của đề tài trong tương lai.
+\end{abstract}
 
-% Bảng mục lục
+
 \tableofcontents
-% Danh mục bảng
-\listoftables
-% Danh mục hình
+%\listofsymbols
+% \listoftables
 \listoffigures
-% Danh mục giải thuật
-\listofalgorithms
+%\listofalgorithms
+
 
 \mainmatter
+
 \fancyhead{}  % Clears all page headers and footers
+%\rhead{\thepage}  % Sets the right side header to show the page number
+%\lhead{}  % Clears the left side page header
+%\fancyfoot[positions]{footer}
 \renewcommand{\footrulewidth}{0.4pt}
-\pagestyle{fancy} 
-\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
-\fancyhead[R]{\chaptername\ \thechapter\ --\ \leftmark}
 
-\input{chapters/introduction}
-\input{chapters/document-preparation}
-\input{chapters/conclusion}
+\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
+%
+\input{chapters/chapter1-dannhap.tex}
+\input{chapters/document-preparation.tex}
+% \input{chapter/chapter3-kienthucnentang.tex}
+% \input{chapter/chapter4-huongtiepcan.tex}
+% \input{chapter/chapter5-ketquadatduoc.tex}
+% \input{chapter/chapter6-thaoluan.tex}
 
-% Tài liệu tham khảo
-\bibliographystyle{plain} 
-\bibliography{refs}
+%bibliography{refs}{}
+%bibliographystyle{plain}
+%-	Danh mục TL tham khảo
+%-	Phụ lục (nếu có)
+\begin{thebibliography}{99}
 
-% Kết thúc
+	\bibitem{9direction}
+	Chi Zhang, Rui Yao, Jinpeng Cai
+	\textit{Efﬁcient Eye Typing with 9 direction Gaze Estimation}.
+
+	\bibitem{appearance}
+	Xucong Zhang, Yusuke Sugano, Mario Fritz, Andreas Bulling
+	\textit{Appearance-Based Gaze Estimation in the Wild}.
+
+
+	\bibitem{eyeShapeRegistrationAndGazeEstimation}
+	University of Cambridge, United Kingdom- Rendering of Eyes for Eye-Shape Registration and Gaze Estimation eww23 iccv2015
+	\\\url{https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Wood_Rendering_of_Eyes_ICCV_2015_paper.pdf}
+
+	\bibitem{Learninganappearancebasedgazeestimator}
+	University of Cambridge and Carnegie Mellon University and Max Planck Institute for Informatics, Learning an appearance-based gaze estimator from one million synthesised images
+	\\\url{https://www.d2.mpi-inf.mpg.de/content/learning-appearance-based-gaze-estimator-one-million-synthesised-images}
+
+	\bibitem{AReviewandAnalysisofEyeGazeEstimation}
+	Anuradha Kar and Peter M. Corcoran, A Review and Analysis of Eye-Gaze Estimation Systems Algorithms and Performance Evaluation Methods in Consumer Platforms
+	\\\url{https://www.semanticscholar.org/paper/A-Review-and-Analysis-of-Eye-Gaze-Estimation-and-in-Kar-Corcoran/ae0a0ee1c6e2adcddffebf9b0e429a25b7d9c0e1}
+
+
+	\bibitem{tangconv}
+	\url{https://developer.apple.com/library/content/documentation/Performance/Conceptual/vImage/ConvolutionOperations/ConvolutionOperations.html}
+
+	\bibitem{lenet5}
+	Y. Lecun, L.Boutou, and Y.Bengio, Gradient-based learning applied to document recognition, Proceedings of the IEEE, vol. 88, no. 11, pp. 2278 – 2324, Nov. 1998.
+
+	\bibitem{maxpool}
+	Denny Britz,
+	\url{http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/}
+
+	\bibitem{cnn}
+	Brandon Rohrer, \url{http://brohrer.github.io/how_convolutional_neural_networks_work.html}
+
+	\bibitem{fullconnect}
+	Trần Thế Anh,
+	\url{http://labs.septeni-technology.jp/technote/ml-20-convolution-neural-network-part-3/}
+	\bibitem{ptha}
+	Lương Quốc An,
+	\url{http://nhiethuyettre.net/mang-no-ron-tich-chap-convolutional-neural-network/}
+
+	\bibitem{inception}
+	\url{https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/googlenet.html}
+
+	\bibitem{softmax}
+	Giáo trình Mạng neural, Tác giả: Phan Văn Hiền – Trường Đại học Bách khoa Đà Nẵng, 2013
+
+	\bibitem{alexnet} Aarshay Jain,
+	\url{https://www.analyticsvidhya.com/blog/2016/04/deep-learning-computer-vision-introduction-convolution-neural-networks/}
+	\bibitem{dataset}
+	\url{https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/research/gaze-based-human-computer-interaction/its-written-all-over-your-face-full-face-appearance-based-gaze-estimation/}
+
+	\bibitem{}
+	\url{https://www.tensorflow.org/versions/r0.12/get_started/basic_usage}
+
+	\bibitem{gglenet}
+	Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhouke, Andrew Rabinovich. \textit{Going deeper with convolutions}
+
+	\bibitem{renset}
+	Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun \textit{Deep Residual Learning for Image Recognition}
+
+	\bibitem{tensor} Trần Thế Anh,
+	\url{http://labs.septeni-technology.jp/technote/ml-18-convolution-neural-network-part-1/}
+
+	\bibitem{mangcnn}
+	\url{https://www.kernix.com/blog/a-toy-convolutional-neural-network-for-image-classification-with-keras_p14}
+	\bibitem{GazeCaptureEyeTracking}
+	Kyle Krafka- Aditya Khosla- Petr Kellnhofer- Harini Kannan- Suchendra Bhandarkar- Wojciech Matusik- Antonio Torralba, Eye Tracking for Everyone
+	\url{http://gazecapture.csail.mit.edu/}
+
+	\bibitem{GazeCapturegit}
+	Kyle Krafka and Aditya Khosla and Petr Kellnhofer and Harini Kannan and Suchendra Bhandarkar and Wojciech Matusik and Antonio Torralba, Eye Tracking for Everyone Code Dataset and Models
+	\url{https://github.com/CSAILVision/GazeCapture}
+
+	\bibitem{eyetrackingapplication}
+	\url{https://medium.com/@taolu_99738/developing-of-eye-tracking-application-for-smartphone-b875c50ee0c3}
+
+\end{thebibliography}
 \end{document}
