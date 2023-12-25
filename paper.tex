@@ -6,7 +6,7 @@
 \usepackage{styles/settings}
 \usepackage{styles/ipa}
 \usepackage{styles/cover}
-% \setcounter{secnumdepth}{2}
+% \setcounter{secnumdepth}{2} % độ sâu đánh số mục lục. 1 là section, 2 là subsubsection, 3 là paragraph
 \cstopname{BỘ GIÁO DỤC VÀ ĐÀO TẠO}
 \csdeptname{TRƯỜNG ĐẠI HỌC NHA TRANG\\KHOA CÔNG NGHỆ THÔNG TIN}
 \crname{BÁO CÁO THỰC TẬP DOANH NGHIỆP}
@@ -21,6 +21,9 @@
 \thesislayout
 
 \begin{document}
+
+\fontsize{13}{1.25}\selectfont
+
 %-	Bìa cứng - màu xanh dương, chữ mạ vàng (xem mẫu đính kèm)
 %-	Trang tên (tờ lót): chất liệu giấy, nội dung giống như bìa LV
 %-	Ở gáy LV: in nhan đề LV (có thể in tóm tắt nếu nhan đề quá dài), size 15 – 17
@@ -48,21 +51,6 @@
 
 \end{declaration}
 
-\begin{acknowledgments}
-
-	Để hoàn thành kì đề cương luận văn này, tôi tỏ lòng biết ơn sâu sắc đến tiến sĩ Nguyễn Đức Dũng đã hướng dẫn tận tình trong suốt quá trình nghiên cứu.
-
-	Chúng tôi chân thành cám ơn quý thầy, cô trong khoa Khoa Học Và Kỹ Thuật Máy Tính, trường đại học Bách Khoa thành phố Hồ Chí Minh đã tận tình truyền đạt kiến thức trong những năm chúng tôi học tập ở trường. Với vốn kiến thức tích lũy được trong suốt quá trình học tập không chỉ là nền tảng cho quá trình nghiên cứu mà còn là hành trang để bước vào đời một cách tự tin.
-
-	Cuối cùng, tôi xin chúc quý thầy, cô dồi dào sức khỏe và thành công trong sự nghiệp cao quý.
-
-\end{acknowledgments}
-
-\begin{abstract}
-	Nội dung chính của luận văn nhằm tìm hiểu, nghiên cứu xây dựng hệ thống nhận diện hướng nhìn thông qua ảnh chụp dựa trên những công trình, công nghệ mới được nghiên cứu và phát triển trong những năm gần đây của lĩnh vực Deep Learning. Trong quá trình nghiên cứu, tôi đã  tiến hành tổng hợp, đánh giá ưu và nhược điểm của cách phương pháp, công nghệ đã và đang được nghiên cứu, sử dụng. Tiếp cận vấn đề theo nhiều hướng khác nhau, tôi thực hiện một số phương pháp sử dụng học sâu (CNN) để phát hiện hướng nhìn của con người qua hình ảnh. Bên cạnh việc hoàn thành nội dung của đề tài, nhóm chúng tôi đã nghiên cứu thêm một số phần để từ đó đặt nền móng cho các nghiên cứu sau này. Phần còn lại của luận văn tập trung vào việc đánh giá mô hình, kết quả đạt được, đồng thời phân tích ưu nhược điểm của mô hình thực hiện và thảo luận những vấn đề mà mô hình còn gặp phải. Cuối cùng, nhóm chúng tôi đề xuất hướng phát triển tiếp theo của đề tài trong tương lai.
-\end{abstract}
-
-
 \tableofcontents
 %\listofsymbols
 % \listoftables
@@ -88,8 +76,11 @@
 
 % Tài liệu tham khảo
 \bibliographystyle{plain}
+% \bibliographystyle{plainnat} % Phân loại theo ABC (tên tác giả)
+% \bibliography{refs}
+% \printbibliography[language=english, title={English References}]
+% \bibliographystyle{plainnat}
 \bibliography{refs}
-
 % \begin{thebibliography}{99}
 
 % 	\bibitem{9direction}
