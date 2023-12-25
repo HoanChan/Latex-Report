@@ -1,69 +1,22 @@
-% This is a copy version from https://github.com/thanhhungqb/thesis-template
 % Please do not modified this project, when you want to start writing, make a clone of it for your own (Please read README.md)
 
-\documentclass[12pt,a4paper,oneside]{book} % twoside for draf
+\documentclass[13pt,a4paper,twoside]{book} % twoside for draf
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,footskip=1cm]{geometry}
 
-%\usepackage{babel}
-\usepackage[utf8]{vietnam}
-\usepackage[utf8]{inputenc}
-\usepackage{tipa}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{subcaption}
-\usepackage{booktabs}
-\usepackage{mathptmx}	% same Time New Roma
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
+\usepackage{styles/settings}
 \usepackage{styles/ipa}
-%\renewcommand{\rmdefault}{phv} % Arial
-%\renewcommand{\sfdefault}{phv} % Arial
-\usepackage{array}
-\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
-\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
-\usepackage{fancyhdr}
-\usepackage{multirow}
-\usepackage{algorithm2e}
-% Đổi tên mặc định của algorithm thành giải thuật nếu là 1, Các giải thuật nếu nhiều, Danh sách giải thuật nếu là ds
-\SetAlgorithmName{Giải thuật}{Các giải thuật}{Danh sách giải thuật}
-\usepackage{hyperref} % Hỗ trợ tạo hyperlink trong văn bản
-\usepackage{float} % Hỗ trợ đặt hình ảnh chính xác
-
-\linespread{1.25} % Giãn dòng 1.25 lần
-% Set paragraph spacing
-\setlength{\parskip}{\baselineskip}% Có nghĩa là khoảng cách giữa các đoạn là 1 dòng
-% Load the parskip package with skip and indent options
-\usepackage[skip=10pt plus1pt, indent=15 pt]{parskip} % Có nghĩa là khoảng cách giữa các đoạn là 10pt, và lùi đầu dòng 15pt
-\usepackage{colortbl} % Hỗ trợ tạo bảng màu, VD: \cellcolor{gray} 
-
-% \usepackage{algorithm}
-% \usepackage{minted}
-% \usepackage{minted}
-\usepackage{listings}
-\lstset{
-  numbers=left,
-  commentstyle=\color{green},
-  keywordstyle=\color{blue},
-  stringstyle=\color{red},
-  basicstyle=\ttfamily,
-  columns=flexible,
-  breaklines=true
-}
 \usepackage{styles/cover}
-
-\usepackage{graphicx}
-\graphicspath{ {image/} }
-\setcounter{secnumdepth}{2}
-\crname{LUẬN VĂN TỐT NGHIỆP ĐẠI HỌC}
-\ctname{NHẬN DIỆN VẬT THỂ TRONG ẢNH\\NHẬN DIỆN HƯỚNG NHÌN TRONG ẢNH}
-\cstuname{
-SVTH: NGÔ THỊ TIẾN (1413986)
-}
-
-\csCouncil{KHOA HỌC MÁY TÍNH}
-\csReviewer{TS. TRẦN GIANG SƠN}
-\csSupervise{TS. NGUYỄN ĐỨC DŨNG}
-\cttime{12/2018}
+% \setcounter{secnumdepth}{2}
+\cstopname{BỘ GIÁO DỤC VÀ ĐÀO TẠO}
+\csdeptname{TRƯỜNG ĐẠI HỌC NHA TRANG\\KHOA CÔNG NGHỆ THÔNG TIN}
+\crname{BÁO CÁO THỰC TẬP DOANH NGHIỆP}
+\ctname{SỐ HOÁ BẢNG TỪ HÌNH ẢNH\\BẰNG THỊ GIÁC MÁY TÍNH}
+\csinfo{
+	\textbf{Giáo viên hướng dẫn:} TS.Nguyễn Khắc Cường\\[1mm]
+	\textbf{Học viên thực hiện:} Lê Hoàn Chân\\[1mm]
+	\textbf{Mã học viên:} 64CH032\\[1mm]
+	\textbf{Nơi thực tập:} Trường THPT Trần Cao Vân}
+\cttime{NHA TRANG, 01/2024}
 
 \thesislayout
 
@@ -120,12 +73,8 @@ SVTH: NGÔ THỊ TIẾN (1413986)
 \mainmatter
 
 \fancyhead{}  % Clears all page headers and footers
-%\rhead{\thepage}  % Sets the right side header to show the page number
-%\lhead{}  % Clears the left side page header
-%\fancyfoot[positions]{footer}
-\renewcommand{\footrulewidth}{0.4pt}
 
-\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
+\pagestyle{header-footer}
 %
 \input{chapters/chapter1-dannhap.tex}
 \input{chapters/document-preparation.tex}
@@ -134,14 +83,11 @@ SVTH: NGÔ THỊ TIẾN (1413986)
 % \input{chapter/chapter5-ketquadatduoc.tex}
 % \input{chapter/chapter6-thaoluan.tex}
 
-%bibliography{refs}{}
-%bibliographystyle{plain}
 %-	Danh mục TL tham khảo
 %-	Phụ lục (nếu có)
 
-
 % Tài liệu tham khảo
-\bibliographystyle{plain} 
+\bibliographystyle{plain}
 \bibliography{refs}
 
 % \begin{thebibliography}{99}

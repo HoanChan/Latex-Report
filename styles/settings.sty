@@ -1,0 +1,106 @@
+\ProvidesPackage{settings}
+
+%\usepackage{babel}
+\usepackage[utf8]{vietnam}
+\usepackage[utf8]{inputenc}
+\usepackage{tipa}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{mathptmx}	% same Time New Roma
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+%\renewcommand{\rmdefault}{phv} % Arial
+%\renewcommand{\sfdefault}{phv} % Arial
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage{algorithm2e}
+% Đổi tên mặc định của algorithm thành giải thuật nếu là 1, Các giải thuật nếu nhiều, Danh sách giải thuật nếu là ds
+\SetAlgorithmName{Giải thuật}{Các giải thuật}{Danh sách giải thuật}
+\usepackage{hyperref} % Hỗ trợ tạo hyperlink trong văn bản
+\usepackage{float} % Hỗ trợ đặt hình ảnh chính xác
+
+\linespread{1.25} % Giãn dòng 1.25 lần
+% Set paragraph spacing
+% \setlength{\parskip}{\baselineskip}% Có nghĩa là khoảng cách giữa các đoạn là 1 dòng
+% \setlength{\parskip}{6pt} % Điều này sẽ đặt giá trị của parskip (khoảng cách dòng giữa các đoạn văn) là 6pt
+% Load the parskip package with skip and indent options
+\usepackage[skip=6pt plus1pt, indent=1cm]{parskip} % Có nghĩa là khoảng cách giữa các đoạn là 6pt, và lùi đầu dòng 1cm
+\usepackage{colortbl} % Hỗ trợ tạo bảng màu, VD: \cellcolor{gray} 
+\usepackage{titlesec}
+\titleformat{\chapter}[block]{\normalfont\color{blue}\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{16pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{\baselineskip}{\baselineskip}
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip}
+\titleformat{\subsection}[block]{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{\baselineskip}
+
+\fancypagestyle{header-footer}{
+  \fancyhf{} % Xóa nội dung cũ trong header và footer
+  \fancyfoot[C]{\thepage} % Đặt số trang trong footer ở giữa
+  \renewcommand{\headrulewidth}{0pt} % Vô hiệu hóa đường kẻ phân cách header và nội dung
+  \renewcommand{\footrulewidth}{0pt} % Độ dày đường kẻ phân cách footer và nội dung
+}
+
+% \usepackage{algorithm}
+% \usepackage{minted}
+% \usepackage{minted}
+\usepackage{listings} % Hỗ trợ tạo khung code
+% \lstset{
+%   numbers=left,
+%   commentstyle=\color{green},
+%   keywordstyle=\color{blue},
+%   stringstyle=\color{red},
+%   basicstyle=\ttfamily,
+%   columns=flexible,
+%   breaklines=true
+% }
+\usepackage{picture} % Hỗ trợ vẽ hình
+\usepackage{graphicx} % Hỗ trợ chèn hình ảnh
+\graphicspath{ {figs/} } % Đường dẫn đến thư mục chứa hình ảnh
+
+
+\def\makeprintversion{} % Comment this line to make an electronic version
+
+%% Remember to load babel before loading this package or define the command \abstractname!
+\makeatletter
+\newenvironment{abstract}{
+	\titlepage
+	\null\vfil 
+	\@beginparpenalty\@lowpenalty
+	\begin{center}
+		\bfseries Tóm tắt nội dung
+		\@endparpenalty\@M
+	\end{center}}
+{\par\vfil\null\endtitlepage}
+\makeatother
+
+\makeatletter
+\newenvironment{acknowledgments}{
+	\titlepage \null\vfil
+	\small
+	\begin{center}
+		{\bfseries Lời cảm ơn / Lời ngỏ\vspace{-.5em}\vspace{\z@}}
+	\end{center}
+	\quotation
+}{}
+\makeatother
+
+% Declaration
+\makeatletter
+\newenvironment{declaration}{
+	\small
+	\begin{center}
+		{\bfseries Lời cam đoan\vspace{-.5em}\vspace{\z@}}
+	\end{center}
+	\quotation
+}{}
+\makeatother
+
+% \renewcommand\lstlistingname{Algorithm}
+% \renewcommand\lstlistlistingname{Algorithms}
