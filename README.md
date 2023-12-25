@@ -10,3 +10,5 @@
 - Danh sách tài liệu tham khảo
 - Đánh số trang
 - Chia nhỏ các chương thành file riêng
+
+Hỗ trợ đầy đủ chức năng của Latex trên Github Codespace - Biên tập trực tiếp trên github mà không cần phải cài môi trường biên dịch Latex ở máy nội bộ.
